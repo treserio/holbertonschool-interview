@@ -8,9 +8,9 @@ def canUnlockAll(boxes):
     ''' Can all the boxes be opened starting at the zero index? '''
     keyset = {0}
 
-    def boxOpener(open=0):
+    def boxOpener(opening=0):
         ''' Opening boxes using available keys '''
-        for key in boxes[open]:
+        for key in boxes[opening]:
             if not (0 <= key < len(boxes)) or key in keyset:
                 continue
             keyset.add(key)
