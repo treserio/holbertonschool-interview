@@ -10,6 +10,8 @@ def canUnlockAll(boxes):
 
     def boxOpener(opening=0):
         ''' Opening boxes using available keys '''
+        if len(keyset) == len(boxes):
+            return
         for key in boxes[opening]:
             if not (0 <= key < len(boxes)) or key in keyset:
                 continue
