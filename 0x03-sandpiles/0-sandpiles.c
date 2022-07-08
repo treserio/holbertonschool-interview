@@ -11,16 +11,13 @@
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int unbalanced = 1;
-
 	combine_piles(grid1, grid2);
 
-	while (unbalanced)
+	while (unbalance_check(grid1))
 	{
 		printf("=\n");
 		print_grid(grid1);
 		topple(grid1, grid2);
-		unbalanced = balance_check(grid1);
 	}
 }
 
@@ -72,11 +69,11 @@ void topple(int grid1[3][3], int grid2[3][3])
 }
 
 /**
- * balance_check - confirm a grid is unbalanced
+ * unbalance_check - confirm a grid is unbalanced
  * @grid1: a 3x3 grid to check for balance
- * Returns: bool, True(1) if unbalanced else False(0)
+ * Return: bool, True(1) if unbalanced else False(0)
  */
-int balance_check(int grid1[3][3])
+int unbalance_check(int grid1[3][3])
 {
 	int x, y;
 
