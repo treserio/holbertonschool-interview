@@ -32,7 +32,7 @@ void combine_piles(int grid1[3][3], int grid2[3][3])
 
 	for (x = 0; x < 3; ++x)
 		for (y = 0; y < 3; ++y)
-			grid1[x][y] = grid1[x][y] + grid2[x][y];
+			grid1[x][y] += grid2[x][y];
 }
 
 /**
