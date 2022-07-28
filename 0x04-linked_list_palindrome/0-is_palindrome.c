@@ -27,10 +27,8 @@ int is_palindrome(listint_t **head)
 		itr = itr->next;
 	/* confirm the other half matches */
 	for (--i; i < UINT_MAX; --i, itr = itr->next)
-	{
-		printf("%d = %d\n", *(list + i), itr->n);
 		if (*(list + i) != itr->n)
 			return (0);
-	}
+	free(list);
 	return (1);
 }
