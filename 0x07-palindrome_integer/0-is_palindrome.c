@@ -1,4 +1,5 @@
 #include "palindrome.h"
+
 /**
  * is_palindrome - tell if an int is a palindrome
  * @n: the value to check
@@ -14,27 +15,24 @@ int is_palindrome(unsigned long n)
 	/* find the significant digits of n */
 	for (; n / dig; ++pwr, dig *= 10)
 	;
-	/* debugging */
-	printf("dig=%d, pwr=%d\n", dig, pwr);
 	/* find the middle */
 	if (pwr % 2)
 	{
 		l = pwr / 2;
-		r = pwr / 2;
+		r = l;
 	}
 	else
 	{
-		l = (pwr - 1) / 2;
-		r = pwr / 2;
+		l = pwr / 2;
+		r = (pwr - 1) / 2;
 	}
 	/* check for plindrome */
-	for (; l >= 0; --l, ++r)
+	for (; r >= 0; ++l, --r)
 	{
-		for (r_val = 1, i = l; i > 0; r_val *= 10, --i)
+		for (r_val = 1, i = r; i > 0; r_val *= 10, --i)
 		;
-		for (l_val = 1, i = r; i > 0; l_val *= 10, --i)
+		for (l_val = 1, i = l; i > 0; l_val *= 10, --i)
 		;
-		/* compare values */
 		if ((n % (10 * l_val)) / l_val != (n % (10 * r_val)) / r_val)
 			return (0);
 	}
