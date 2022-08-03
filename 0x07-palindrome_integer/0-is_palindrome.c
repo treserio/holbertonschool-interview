@@ -12,6 +12,8 @@ int is_palindrome(unsigned long n)
 	/* check for single digits */
 	if (!n || !(n / dig))
 		return (1);
+	if (n == ULONG_MAX)
+		return (0);
 	/* find the significant digits of n */
 	for (; n / dig; ++pwr, dig *= 10)
 	;
