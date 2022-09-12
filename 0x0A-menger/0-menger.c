@@ -17,7 +17,7 @@ void menger(int level)
 		{
 			i = x;
 			j = y;
-			for (k = 0; k < level; k++, i /= 3, j /=3)
+			for (k = 0; k < level; k++, i /= 3, j /= 3)
 				if (i % 3 == 1 && j % 3 == 1)
 					break;
 			if (k == level)
