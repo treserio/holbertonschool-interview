@@ -16,10 +16,10 @@ If the list is empty return 0.
 
 def rain(walls):
     ''' calculate water retention '''
-    water = 0
+    bucket = 0
     if walls:
         for i in range(1, len(walls) - 1):
-            left = max(walls[i], (max(walls[:i])))
-            right = max(walls[i], (max(walls[i + 1:])))
-            water += min(left, right) - walls[i]
-    return water
+            l_wall = max(walls[i], (max(walls[:i])))
+            r_wall = max(walls[i], (max(walls[i + 1:])))
+            bucket += min(l_wall, r_wall) - walls[i]
+    return bucket
