@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 /**
- * In an array of size n find the duplicate and missing values from 1 to n
- * We'll use pointer arithmetic to order our values in a new array, searching
+ * In an unsorted array of size n, find the duplicate and missing values from 1
+ * to n. Use pointer arithmetic to order our values in a new array, and search
  * for our duplicate value while doing so. Then search our sorted list for the
  * missing value.
 */
