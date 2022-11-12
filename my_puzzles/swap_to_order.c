@@ -2,8 +2,9 @@
 #include <stdio.h>
 
 /**
- * swap_to_order: confirm whether an ordered list can be found after swapping
- * only one value
+ * swap_to_order: confirm whether an ordered list of values from 0 to UINT_MAX
+ * can be found after swapping only one value
+ *
  * Return: boolean (true if one swap == sorted list, else false)
 */
 int swap_to_order(int *list, unsigned int size) {
@@ -20,8 +21,8 @@ int swap_to_order(int *list, unsigned int size) {
 }
 
 /**
- * main: setup for running swat_to_order, values of my_list can be adjusted
- * for testing.
+ * main: setup for running swap_to_order
+ * values of "my_list" can be adjusted for testing.
 */
 void main() {
 	int my_list[] = {1, 1, 2, 1, 5, 4};
