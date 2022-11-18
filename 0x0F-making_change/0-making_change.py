@@ -8,6 +8,9 @@ def makeChange(coins, total):
     ''' Given a pile of coins of different values, determine the fewest number
     of coins needed to meet a given amount total.
     '''
+    if (total < 1):
+        return 0
+
     coinList = [0] * (total + 1)
     coins.sort(reverse=True)
 
@@ -18,6 +21,7 @@ def makeChange(coins, total):
         for i in range(coin, total + 1):
             # print(i, coinList[i], end=', ')
             if (coinList[i - coin]):
+                # take the smallest value if it already exists
                 if (coinList[i]):
                     coinList[i] = min(coinList[i], coinList[i - coin] + 1)
                 else:
