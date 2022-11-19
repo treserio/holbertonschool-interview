@@ -12,7 +12,6 @@ def makeChange(coins, total):
         return 0
 
     coinList = [0] * (total + 1)
-    coins.sort(reverse=True)
 
     # print(coins)
     for coin in coins:
