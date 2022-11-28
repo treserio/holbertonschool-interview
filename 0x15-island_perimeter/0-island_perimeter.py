@@ -26,22 +26,17 @@ def island_perimeter(grid):
     for row_index, row in enumerate(grid):
         for col_index, isLand in enumerate(row):
             # print('r:', row_index, 'c:', col_index, 'land?:', isLand)
-            # check for first and last row
-            if (not row_index or row_index == last_row) and isLand:
-                perim += 1
-            # check for first and last lastColumn
-            if (not col_index or col_index == last_column) and isLand:
-                perim += 1
-            # check all the adjacent land between first & last rows
+            # increase perimeter if we're on the first or last row or column,
+            # otherwise check previous / next for land
             if isLand:
-                if row_index > 0 and not grid[row_index - 1][col_index]:
+                if not row_index or not grid[row_index - 1][col_index]:
                     perim += 1
-                if row_index < last_row and not grid[row_index + 1][col_index]:
+                if row_index == last_row or not grid[row_index + 1][col_index]:
                     perim += 1
                 # check all the adjacent land between first & last column
-                if col_index > 0 and not row[col_index - 1]:
+                if not col_index or not row[col_index - 1]:
                         perim += 1
-                if col_index < last_column and not row[col_index + 1]:
+                if col_index == last_column or not row[col_index + 1]:
                         perim += 1
             # print('perim =', perim)
 
