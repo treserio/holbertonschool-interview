@@ -19,30 +19,30 @@ def island_perimeter(grid):
     ''' find the perimeter of the island in the grid
     '''
     perim = 0
-    size = len(grid)
+    last_row = len(grid) - 1
+    last_column = len(grid[0]) - 1
+    # print(last_row, last_column)
 
     for row_index, row in enumerate(grid):
         for col_index, isLand in enumerate(row):
+            # print('r:', row_index, 'c:', col_index, 'land?:', isLand)
             # check for first and last row
-            if (not row_index or row_index == size - 1) and isLand:
+            if (not row_index or row_index == last_row) and isLand:
                 perim += 1
-            # check for first and last columns
-            if (not col_index or col_index == size - 1) and isLand:
+            # check for first and last lastColumn
+            if (not col_index or col_index == last_column) and isLand:
                 perim += 1
             # check all the adjacent land between first & last rows
             if isLand:
-                if row_index > 0:
-                    if not row[row_index - 1]:
+                if row_index > 0 and not grid[row_index - 1][col_index]:
+                    perim += 1
+                if row_index < last_row and not grid[row_index + 1][col_index]:
+                    perim += 1
+                # check all the adjacent land between first & last column
+                if col_index > 0 and not row[col_index - 1]:
                         perim += 1
-                if row_index < size:
-                    if not row[row_index + 1]:
+                if col_index < last_column and not row[col_index + 1]:
                         perim += 1
-                # check all the adjacent land between first & last columns
-                if col_index > 0:
-                    if not row[col_index - 1]:
-                        perim += 1
-                if col_index < size:
-                    if not row[col_index + 1]:
-                        perim += 1
+            # print('perim =', perim)
 
     return perim
